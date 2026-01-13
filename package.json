@@ -1,0 +1,21 @@
+{
+  "name": "gasless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tsc -b && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@nucastio/gasless": "^1.0.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "lucid-cardano": "^0.10.11",
+    "nvm": "^0.0.4"
+  }
+}
