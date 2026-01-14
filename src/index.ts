@@ -10,23 +10,7 @@ try {
       network: 0,
       key: {
         type: "mnemonic",
-        words: [
-          "wood",
-          "bench",
-          "lock",
-          "genuine",
-          "relief",
-          "coral",
-          "guard",
-          "reunion",
-          "follow",
-          "radio",
-          "jewel",
-          "cereal",
-          "actual",
-          "erosion",
-          "recall",
-        ],
+        words: process.env.mnemonic
       },
     },
     conditions: {
@@ -60,16 +44,16 @@ function SponsorClient() {
   // Sponsor a transaction
   async function sponsorTransaction() {
     const txCbor = process.env.txCbor; // Replace with actual CBOR
-    const poolAddress = "http://localhost:5050"; // Replace with actual pool address
+    // const poolAddress = ""; // Replace with actual pool address
     const sponsoredTx = await gaslessSponsor.sponsorTx({
       txCbor,
-      poolId: "http://localhost:5050",
+      poolId: process.env.WalletAddr,
     });
 
     // Validate and sign the transaction
     const validatedTx = await gaslessSponsor.validateTx({
       txCbor: sponsoredTx,
-      poolSignServer: "<http://localhost:5050>",
+      poolSignServer: "http://localhost:5050",
     });
 
     console.log("Validated Transaction CBOR:", validatedTx);
